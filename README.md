@@ -3,3 +3,4 @@ This is intended to be an open repository where my master thesis' notes will be 
 
 - The LaTeX packages that are not recognized within /usr/local/texlive/2023/textmf-dit/tex/latex/ are included in the /aux folder.
 
+# Installation?
