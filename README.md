@@ -3,7 +3,7 @@ This is intended to be an open repository where my master thesis' notes will be 
 
 # Installation of LaTeX libraries
 
-- To install the LaTeX libraries in Ubuntu please do:
+- To install the LaTeX libraries in Ubuntu please do the full installation by running:
 > wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 
 - Unzip the .tar.gz file by right-clicking, for example.
