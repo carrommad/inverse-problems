@@ -1,0 +1,83 @@
+\section*{The Calderón problem: Dirichlet boundary value problem}
+We are studying the following Dirichlet boundary value problem:
+\begin{equation}\label{calderon-problem}
+    \begin{aligned}
+        -\nabla \cdot (\gamma(x) \nabla u(x)) &= 0 \quad \text{in } \Omega, \\
+        u(x) &= f(x) \quad \text{on } \partial \Omega,
+    \end{aligned}
+\end{equation}
+\begin{equation}\label{calderon-problem-conditions}
+    \begin{aligned}
+        \gamma& :  \Omega \rightarrow [\gamma_0, \gamma^0] \subseteq \mathbb{R} \quad \text{with } 0 < \gamma_0 \leq \gamma(x) \leq \gamma^0 < \infty, \\
+        f & : \partial \Omega \rightarrow \mathbb{C}.
+    \end{aligned}
+\end{equation}
+where $\Omega$ is a bounded domain in $\mathbb{R}^n$ with a \textcolor{red}{Lipschitz continuous boundary} $\partial \Omega$, $\gamma(x)$ is a \textcolor{red}{symmetric positive definite matrix-valued function}, $f(x)$ is a given function, and $u(x)$ is the unknown function to be determined.
+
+For that problem, there exists a unique solution $u: \overline{\Omega} \rightarrow \mathbb{C}$, where $\overline{\Omega}$ is the closure of $\Omega$.
+\textcolor{red}{Closure or no closure?}
+
+\section*{Motivation: Dirichlet-to-Neumann map}
+The idea is to reconstruct the behaviour of $\gamma$ (which could be considered a kind of resistivity if we were in an electrical problem) inside the domain $\Omega$ from the knowledge of the solution $u(x)$ on the boundary $\partial \Omega$, which is $f(x)$ (following the analogy, this would be the potential/current we can measure outside the domain with our equipment).
+\begin{equation}\label{dirichlet-to-neumann}
+    \begin{aligned}
+        \Lambda_{\gamma} & : f \rightarrow \gamma(x) \nabla u(x) \cdot \mathbf{n} \quad \text{on } \partial \Omega, \\
+        \Lambda_{\gamma} f & = \gamma(x) \nabla u(x) \cdot \mathbf{n} = \partial_{\mathbf{n}} u(x) \quad \text{on } \partial \Omega
+    \end{aligned}
+\end{equation}
+
+\section*{Relation of D-N map with the Calderón problem}
+The D-N map $\Lambda_{\gamma}$ is related to the Calderón problem through the following equation:
+\begin{equation}
+    \int_{\partial \Omega} \Lambda_{\gamma} f \overline{g} \, dS = \int_{\partial \Omega} \gamma \partial_{\mathbf{n}} u(x) \overline{g} \, dS = \int_{\Omega} \underbrace{\nabla ( \gamma \nabla u)}_{\text{Null by (\ref*{calderon-problem})}} \cdot \overline{ g} \, dx +  \int_{\Omega} \gamma \nabla u \cdot \overline{\nabla g} \, dx
+\end{equation}
+
+Therefor:
+\begin{equation}\label{calderon-dn}
+    \int_{\partial \Omega} \Lambda_{\gamma} f \overline{g} \, dS = \int_{\Omega} \gamma \nabla u \cdot \overline{\nabla g} \, dx
+\end{equation}
+with $g: \Omega \rightarrow \mathbb{C}$ \textcolor{red}{test function}.
+
+\section*{Non-linearity and uniqueness of the D-N map}
+The D-N map is non-linear because of the dependence of the solution $u(x)$ on the conductivity $\gamma(x)$.
+
+But, is our definition robust of the D-N map given that we have not imposed any condition on the test function $g$?
+Take $g_1$ and $g_2$ two test functions fulfilling Eq.(\ref*{calderon-problem}) such that:
+\begin{equation}
+    g_1(x) = g_2(x) = g(x) \quad \text{on } \partial \Omega
+\end{equation}
+Then, we have:
+\begin{equation}
+    \int_{\Omega} \gamma \nabla u \cdot \overline{\nabla (g_1 - g_2)} \, dx = \int_{\partial \Omega} \Lambda_{\gamma} f \overline{(\underbrace{g_1 - g_2}_{0})} \, dS = 0
+\end{equation}
+meaning that the D-N map is independent of the extension of the test function $g$ to the whole domain $\Omega$.
+
+\textcolor{red}{To obtain a symmetric D-N map we will make use of the uniqueness of the solution of the Calderón problem applied to the test functions.} 
+To have uniqueness, we will use a family of test functions $g_j$ fulfilling  Eq.(\ref*{calderon-problem}).
+\begin{equation}
+    \begin{aligned}
+        \nabla \cdot (\gamma \nabla v) &= 0 \quad \text{in } \Omega, \\
+        v &= g_j \quad \text{on } \partial \Omega.
+    \end{aligned}
+\end{equation}
+
+And we can now define the symmetric D-N map as:
+\begin{equation}\label{symmetric-dn-map}
+    \int_{\partial \Omega} \Lambda_{\gamma} f \overline{g} \, dS = \int_{\Omega} \gamma \nabla u \cdot \overline{\nabla g} \, dx = \int_{\Omega} \gamma \nabla v \cdot \overline{\nabla f} \, dx = \int_{\partial \Omega} \Lambda_{\gamma} g \overline{f} \, dS
+\end{equation}
+
+In particular:
+\begin{equation}
+    \int_{\partial \Omega} (\Lambda_{\gamma_1} - \Lambda_{\gamma_2}) f \overline{g} \, dS = \int_{\Omega} \underbrace{(\gamma_1 - \gamma_2) \nabla u \cdot \overline{\nabla v}}_{(*)} \, dx 
+\end{equation}
+\begin{equation}
+    \boxed{\gamma_1 = \gamma_2 \iff \Lambda_{\gamma_1} = \Lambda_{\gamma_2}}
+\end{equation}
+
+(*) \textit{Note}: This is an orthogonality relation between $(\gamma_1 - \gamma_2)$ and $\nabla u \cdot \overline{\nabla v}$. If the second term were to be dense in the appropiate sense, if $(\gamma_1 - \gamma_2)$ were to be orthogonal to all the elements of the space, then $(\gamma_1 - \gamma_2)$ would be zero.
+
+\section*{First toy model}
+Consider the following toy model:
+
+
+% End of intro.tex

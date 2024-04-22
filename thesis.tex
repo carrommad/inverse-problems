@@ -8,6 +8,10 @@
 \usepackage{setspace} % For adjusting line spacing
 \usepackage{hyperref} % For hyperlinks
 \usepackage{boxedminipage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{graphicx}
 
 % Set up page margins
 \geometry{
@@ -48,20 +52,22 @@
   \vspace*{\fill}
 \end{titlepage}
 
-% Table of contents
-\tableofcontents
+% Table of contents (silenced)
+%\tableofcontents
 
 % List of figures and tables (if applicable)
-\listoffigures
-\listoftables
+%\listoffigures
+%\listoftables
 
-% Introduction
-\chapter{Introduction}
-\input{chapters/1-introduction}
-
-% Literature Review
-\chapter{Literature Review}
-\input{chapters/2-literature-review}
+% Chapters
+\input{chapters/0-handwritten-notes.tex}
+%\input{chapters/1-calderon-problem-first-glance.tex}
+%\input{chapters/2-analysis-two-toy-models.tex}
+%\input{chapters/3-fourier-transform.tex}
+%\input{chapters/4-boundary-value-problem.tex}
+%\input{chapters/5-complex-geometrical-optics.tex}
+%\input{chapters/6-uniqueness-regular-conductivities.tex}
+%\input{chapters/7-uniqueness-less-regular-conductivities.tex}
 
 % References
 \addcontentsline{toc}{chapter}{References}
